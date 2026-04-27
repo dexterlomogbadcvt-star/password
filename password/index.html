@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Username Password Input</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #f0f8ff, #e6e6fa);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* Form container */
+    .login-container {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      width: 350px;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #2f4f4f;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"], input[type="password"] {
+      width: 90%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 2px solid #4682b4;
+      border-radius: 6px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      font-size: 1.1em;
+      background-color: #2e8b57;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      opacity: 0.85;
+    }
+  </style>
+</head>
+<body>
+  <!-- Login Form -->
+  <div class="login-container">
+    <h2>Login Form</h2>
+    <form onsubmit="return validateForm()">
+      <label for="username">Username:</label>
+      <input type="text" id="username" placeholder="Enter username">
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" placeholder="Enter password">
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    // Function: Validate username and password
+    function validateForm() {
+      let username = document.getElementById("username").value;
+      let password = document.getElementById("password").value;
+
+      // Password validation rules:
+      // - At least 8 characters
+      // - Contains uppercase and lowercase letters
+      if (password.length < 8) {
+        alert("Password should be more than 8 characters.");
+        return false;
+      }
+      if (!/[A-Z]/.test(password) || !/[a-z]/.test(password)) {
+        alert("Password should contain both uppercase and lowercase characters.");
+        return false;
+      }
+
+      // If valid, show welcome message
+      alert("Welcome " + username + "!");
+      return true;
+    }
+  </script>
+</body>
+</html>
